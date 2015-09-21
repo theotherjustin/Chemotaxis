@@ -1,5 +1,21 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Chemotaxis extends PApplet {
+
  Bacteria [] colony = new Bacteria[150]; 
- void setup() 
+ public void setup() 
  {  
  	//initialize bacteria variables here  
 	 size(1000, 800);
@@ -9,7 +25,7 @@
  		colony[j] = new Bacteria();
  	}
 }
- void draw()   
+ public void draw()   
  {    
  	//move and show the bacteria   
  	fill(255,255,255, 60);
@@ -35,37 +51,46 @@
  		myColory = (int)(Math.random()*256);
  		mySize = (int)(Math.random()*25) + 1;
  	}  
- 	void move()
+ 	public void move()
  	{
 		if(myX < mouseX)
  		{
- 			myX = myX + (int)(Math.random()*4) - 1;
+ 			myX = myX + (int)(Math.random()*7) - 3;
  		}
  		else if(myX > mouseX)
  		{
- 			myX = myX + (int)(Math.random()*4) - 2;
+ 			myX = myX + (int)(Math.random()*7) - 3;
  		}
  		else 
  		{
- 			myX = myX + (int)(Math.random()*5) - 2;	
+ 			myX = myX + (int)(Math.random()*9) - 4;	
  		}
  		if(myY < mouseY)
  		{
- 			myY = myY + (int)(Math.random()*4) - 1;
+ 			myY = myY + (int)(Math.random()*7) - 3;
  		}
  		else if(myY > mouseY)
  		{
- 			myY = myY + (int)(Math.random()*4) - 2;
+ 			myY = myY + (int)(Math.random()*7) - 3;
  		}
  		else 
  		{
- 			myY = myY + (int)(Math.random()*5) - 2;	
+ 			myY = myY + (int)(Math.random()*8) - 4;	
  		}
  	}
- 	void show()
+ 	public void show()
  	{
  		noStroke();
  		fill(myColory,myColorx,myColor);
  		ellipse(myX,myY,mySize,mySize);
  	}
  }    
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Chemotaxis" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
+}
