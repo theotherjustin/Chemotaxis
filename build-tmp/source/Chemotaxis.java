@@ -53,29 +53,37 @@ public class Chemotaxis extends PApplet {
  	}  
  	public void move()
  	{
+ 		if (mousePressed){
 		if(myX < mouseX)
  		{
- 			myX = myX + (int)(Math.random()*7) - 3;
+ 			myX = myX + (int)(Math.random()*4) - 1;
  		}
  		else if(myX > mouseX)
  		{
- 			myX = myX + (int)(Math.random()*7) - 3;
+ 			myX = myX + (int)(Math.random()*4) - 2;
  		}
  		else 
  		{
- 			myX = myX + (int)(Math.random()*9) - 4;	
+ 			myX = myX + (int)(Math.random()*5) - 2;	
  		}
  		if(myY < mouseY)
  		{
- 			myY = myY + (int)(Math.random()*7) - 3;
+ 			myY = myY + (int)(Math.random()*4) - 1;
  		}
  		else if(myY > mouseY)
  		{
- 			myY = myY + (int)(Math.random()*7) - 3;
+ 			myY = myY + (int)(Math.random()*4) - 2;
  		}
  		else 
  		{
- 			myY = myY + (int)(Math.random()*8) - 4;	
+ 			myY = myY + (int)(Math.random()*5) - 2;	
+ 		}
+
+ 		}
+ 		else
+ 		{
+ 			myX = myX + (int)(Math.random()*5) - 2;
+ 			myY = myY + (int)(Math.random()*5) - 2;
  		}
  	}
  	public void show()
